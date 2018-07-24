@@ -29,24 +29,24 @@ class MainController extends Controller
     public function index(RoadSafetyService $roadSafetyService)
     {
         $roadSafetyOffences = $roadSafetyService->getAll();
-        return view('index', ['crimes' => $roadSafetyOffences, 'json_crimes' => json_encode($roadSafetyOffences)]);
+        return view('index', ['crimes' => $roadSafetyOffences, 'json_crimes' => json_encode($roadSafetyOffences), 'user' => Auth::user()]);
     }
 
     public function offences()
     {
-        return view('new_offences');
+        return view('new_offences', ['user' => Auth::user()]);
     }
 
     public function view_offence(CrimeService $service)
     {
         $offences = $service->getAll();
-        return view('view_offences', ['offences' => $offences]);
+        return view('view_offences', ['offences' => $offences, 'user' => Auth::user()]);
     }
 
     public function view_particular_offence($id, CrimeService $service)
     {
         $offence = $service->getById($id);
-        return view('view_particular_offence', ['offence' => $offence]);
+        return view('view_particular_offence', ['offence' => $offence, 'user' => Auth::user()]);
     }
 
     public function home()

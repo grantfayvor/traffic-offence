@@ -350,7 +350,7 @@
                                     <i class="demo-pli-male ic-user"></i>
 
                                 </span>
-                                <div class="username hidden-xs">Traffic Offender Record</div>
+                                <div class="username hidden-xs">{{ $user->email }}</div>
                             </a>
 
 
@@ -380,12 +380,12 @@
 
                                 <!-- Dropdown footer -->
                                 <div class="pad-all text-right">
-                                    <!-- <form action="/logout" method="post">
+                                    <form action="/logout" method="post">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             <i class="demo-pli-unlock"></i> Logout
                                         </button>
-                                    </form> -->
+                                    </form>
                                 </div>
                             </div>
                         </li>
@@ -414,16 +414,18 @@
                     <h1 class="page-header text-overflow">View Registered Offences</h1>
 
                     <!--Searchbox-->
-                    <!-- <div class="searchbox">
-        <div class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Search..">
-            <span class="input-group-btn">
-                <button class="text-muted" type="button">
-                    <i class="demo-pli-magnifi-glass"></i>
-                </button>
-            </span>
-        </div>
-    </div> -->
+                    <div class="searchbox">
+                        <form action="/search" method="GET">
+                            <div class="input-group custom-search-form">
+                                <input type="text" name="text" class="form-control" placeholder="Search..">
+                                <span class="input-group-btn">
+                                    <button class="text-muted" type="submit">
+                                        <i class="demo-pli-magnifi-glass"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <!--End page title-->
@@ -505,16 +507,16 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                        <span>{{ $offence->vehicle_insurance }}</span>
+                                                    <span>{{ $offence->vehicle_insurance }}</span>
                                                 </td>
                                                 <td>
-                                                    
-                                                        <span>{{ $offence->crime_date }}</span>
+
+                                                    <span>{{ $offence->crime_date }}</span>
                                                 </td>
                                                 <td>
                                                     <a href="/crime/{{ $offence->id }}">
                                                         <span class="label label-table label-danger">
-                                                            <!-- <i class="fa fa-eye"></i> -->View</span> 
+                                                            <!-- <i class="fa fa-eye"></i> -->View</span>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -871,8 +873,8 @@
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
-                                            <p class="mnp-name">traffic offenders</p>
-                                            <span class="mnp-desc">traffic_offenders@email.com</span>
+                                            <p class="mnp-name">{{ $user->name }}</p>
+                                            <span class="mnp-desc">{{ $user->email }}</span>
                                         </a>
                                     </div>
                                     <div id="profile-nav" class="collapse list-group bg-trans">
@@ -941,6 +943,7 @@
                                         </a>
                                     </li>
 
+                                    @if($user->admin)
                                     <li>
                                         <a href="/offence">
                                             <i class="demo-psi-bar-chart"></i>
@@ -949,6 +952,7 @@
                                             </span>
                                         </a>
                                     </li>
+                                    @endif
 
                                     <li>
                                         <a href="/crime">
@@ -958,6 +962,17 @@
                                             </span>
                                         </a>
                                     </li>
+
+                                    @if($user->admin)
+                                    <li>
+                                        <a href="/register">
+                                            <i class="demo-pli-lock-user"></i>
+                                            <span class="menu-title">
+                                                <strong>Register Officer</strong>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    @endif
 
                                     <li class="list-divider"></li>
 

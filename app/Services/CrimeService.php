@@ -22,6 +22,11 @@ class CrimeService {
         return $this->offenderRepo->findAll();
     }
 
+    public function search($text)
+    {
+        return $this->offenderRepo->search($text);
+    }
+
     public function getById($id)
     {
         return $this->offenderRepo->findById($id);

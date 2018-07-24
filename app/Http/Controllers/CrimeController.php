@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\CrimeService;
 
+use Auth;
+
 class CrimeController extends Controller
 {
     private $service;
@@ -23,5 +25,11 @@ class CrimeController extends Controller
     public function getAll()
     {
         return $this->service->getAll();
+    }
+
+    public function search(Request $request)
+    {
+        $offences = $this->service->search($request->text);
+        return view('view_offences', ['offences' => $offences, 'user' => Auth::user()]);
     }
 }

@@ -17,9 +17,10 @@ use Illuminate\Http\Request;
 
 Auth::routes();
 
-Route::get('/', 'MainController@index');
-Route::get('/offence', 'MainController@offences');
-Route::post('/offence', 'RoadSafetyController@create');
-Route::post('/crime', 'CrimeController@create');
-Route::get('/crime', 'MainController@view_offence');
-Route::get('/crime/{id}', 'MainController@view_particular_offence');
+Route::get('/', 'MainController@index')->middleware('auth');
+Route::get('/offence', 'MainController@offences')->middleware('auth');
+Route::post('/offence', 'RoadSafetyController@create')->middleware('auth', 'admin');
+Route::post('/crime', 'CrimeController@create')->middleware('auth');
+Route::get('/crime', 'MainController@view_offence')->middleware('auth');
+Route::get('/crime/{id}', 'MainController@view_particular_offence')->middleware('auth');
+Route::get('/search', 'CrimeController@search')->middleware('auth');

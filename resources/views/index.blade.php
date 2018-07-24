@@ -350,7 +350,7 @@
                                     <i class="demo-pli-male ic-user"></i>
 
                                 </span>
-                                <div class="username hidden-xs">Traffic Offender Record</div>
+                                <div class="username hidden-xs">{{ $user->email }}</div>
                             </a>
 
 
@@ -380,12 +380,12 @@
 
                                 <!-- Dropdown footer -->
                                 <div class="pad-all text-right">
-                                    <!-- <form action="/logout" method="post">
+                                    <form action="/logout" method="post">
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-primary">
                                             <i class="demo-pli-unlock"></i> Logout
                                         </button>
-                                    </form> -->
+                                    </form>
                                 </div>
                             </div>
                         </li>
@@ -978,8 +978,8 @@
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
-                                            <p class="mnp-name">traffic offenders</p>
-                                            <span class="mnp-desc">traffic_offenders@email.com</span>
+                                            <p class="mnp-name">{{ $user->name }}</p>
+                                            <span class="mnp-desc">{{ $user->email }}</span>
                                         </a>
                                     </div>
                                     <div id="profile-nav" class="collapse list-group bg-trans">
@@ -1048,6 +1048,7 @@
                                         </a>
                                     </li>
 
+                                    @if($user->admin)
                                     <li>
                                         <a href="/offence">
                                             <i class="demo-psi-bar-chart"></i>
@@ -1056,6 +1057,7 @@
                                             </span>
                                         </a>
                                     </li>
+                                    @endif
 
                                     <li>
                                         <a href="/crime">
@@ -1065,6 +1067,17 @@
                                             </span>
                                         </a>
                                     </li>
+
+                                    @if($user->admin)
+                                    <li>
+                                        <a href="/register">
+                                            <i class="demo-pli-lock-user"></i>
+                                            <span class="menu-title">
+                                                <strong>Register Officer</strong>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    @endif
 
                                     <li class="list-divider"></li>
 

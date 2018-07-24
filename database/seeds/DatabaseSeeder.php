@@ -11,6 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([
+            'name' => 'Admin Traffic',
+            'email' => 'admin@traffic.com',
+            'phone_number' => '09198765432',
+            'password' => '$2y$10$20uvTri3uDwjF0FgOKnameTQY.IQvgPIMAe2tXoxEUY/w.wiG8U8a',
+            'admin' => true
+        ]);
         DB::table('road_safety_offences')->insert([[
             'type' => 'Assaulting Marshall on Duty',
             'code' => 'AMD',
