@@ -15,6 +15,7 @@ class CreateVehicleOffendersTable extends Migration
     {
         Schema::create('vehicle_offenders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ticket_number');
             $table->string('vehicle_owner'); //
             $table->string('vehicle_name');//
             $table->string('vehicle_make');//

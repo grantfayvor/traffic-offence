@@ -53,6 +53,7 @@ class CrimeService {
     public function registerOffender($request)
     {
         $data = [
+            'ticket_number' => rand(1000000, 999999999999),
             'vehicle_owner' => $request->vehicle_owner,
             'vehicle_name' => $request->vehicle_name,
             'vehicle_make' => $request->vehicle_make,

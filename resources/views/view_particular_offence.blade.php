@@ -471,6 +471,9 @@
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <address>
+                                                <strong class="text-main">Ticket Number: </strong>
+                                                <span>{{ $offence->ticket_number }}</span>
+                                                <br>
                                                 <strong class="text-main">Location: </strong>
                                                 <span>{{ $offence->crime_place }}</span>
                                                 <br>
