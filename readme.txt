@@ -5,7 +5,7 @@ first thing to do is to create a database with the name traffic_offense
 the default database connection in the .env file is
 
 username=root
-password=password
+password=
 
 in case this isn't the connection details for your mysql db then change the file accordingly
 
