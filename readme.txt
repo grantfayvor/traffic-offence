@@ -16,3 +16,7 @@ to setup the project do the following
 4. php artisan serve
 
 this last command starts the server and can be used to start the server anytime
+
+the admin login details is
+username=admin@traffic.com
+password=password
