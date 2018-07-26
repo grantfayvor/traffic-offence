@@ -12,10 +12,24 @@
 
     <!-- Styles -->
     <link href="css/app.css" rel="stylesheet">
+
+    <style>
+        .navbar-custom-offence {
+            background-color: #3097D1!important;
+            color: white!important;
+        }
+        .navbar-default .navbar-brand{
+            color: white!important;
+        }
+
+        .navbar-default .navbar-nav>li>a {
+            color: white!important;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top navbar-custom-offence">
             <div class="container">
                 <div class="navbar-header">
 
